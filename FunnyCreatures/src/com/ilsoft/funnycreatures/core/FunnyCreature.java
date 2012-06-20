@@ -143,7 +143,7 @@ public class FunnyCreature
 		new Noun(506, "увалень", Gender.Male),
 		new Noun(507, "невидень", Gender.Male),
 		new Noun(508, "отгрызайка", Gender.Female),
-		new Noun(509, "уползайка", Gender.Female),
+		new Noun(509, "уползад", Gender.Male),
 		new Noun(510, "грибоед", Gender.Male),
 		new Noun(511, "камнегрыз", Gender.Male),
 		new Noun(511, "древожуй", Gender.Male),

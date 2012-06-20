@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Funny creatures</string>
+    <string name="go_forward">Go forward</string>
+    <string name="you_meet">You meet:</string>
+    <string name="go_for_a_walk">Go for a walk</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Эти забавные животные</string>
+    <string name="go_forward">Идти дальше</string>
+    <string name="you_meet">На пути вам встретился:</string>
+    <string name="go_for_a_walk">Прогуляться</string>
+</resources>

@@ -3,6 +3,7 @@ package com.ilsoft.funnycreatures.ui;
 import java.util.Random;
 
 import com.ilsoft.funnycreatures.R;
+import com.ilsoft.funnycreatures.core.Case;
 import com.ilsoft.funnycreatures.core.FunnyCreature;
 import com.ilsoft.funnycreatures.core.FunnyCreatureDescriptor;
 import com.ilsoft.funnycreatures.core.FunnyCreatureGenerator;
@@ -50,7 +51,7 @@ public class FunnyCreaturesWalkActivity extends Activity
 					{
 						FunnyCreature fc = FunnyCreatureGenerator.generate(rnd);
 						
-						creatureName_TextView.setText(fc.toString());
+						creatureName_TextView.setText(fc.getFullName(Case.NOMINATIVE));
 						creatureDescription_TextView.setText(FunnyCreatureDescriptor.describe(fc));
 
 						goForAWalk_LinearLayout.setVisibility(View.GONE);

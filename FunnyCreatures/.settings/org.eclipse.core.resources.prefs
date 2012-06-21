@@ -1,6 +1,10 @@
-#Wed Jun 20 16:17:55 MSK 2012
+#Thu Jun 21 16:47:25 MSK 2012
 eclipse.preferences.version=1
+encoding//src/com/ilsoft/funnycreatures/core/AdjectiveBase.java=UTF-8
 encoding//src/com/ilsoft/funnycreatures/core/FunnyCreature.java=UTF-8
 encoding//src/com/ilsoft/funnycreatures/core/FunnyCreatureDescriptor.java=UTF-8
 encoding//src/com/ilsoft/funnycreatures/core/FunnyCreatureGenerator.java=UTF-8
+encoding//src/com/ilsoft/funnycreatures/core/NounBase.java=UTF-8
+encoding//src/com/ilsoft/funnycreatures/core/RootBase.java=UTF-8
+encoding//src/com/ilsoft/funnycreatures/core/Suffix.java=UTF-8
 encoding//src/com/ilsoft/funnycreatures/ui/FunnyCreaturesWalkActivity.java=UTF-8

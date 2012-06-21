@@ -1,30 +1,58 @@
 package com.ilsoft.funnycreatures.core;
 
-public class Noun
+import java.util.ArrayList;
+
+public class Noun extends NounBase
 {
-	public enum Gender { Male, Female }
-
-	private int id;
-	private String s;
-	private Gender gender;
+	private RootBase root;
+	private NounBase baseNoun;
 	
-	public Noun(int id, String s, Gender gender)
+	public Noun(RootBase rootBase, NounBase nounBase)
 	{
-		this.id = id;
-		this.s = s;
-		this.gender = gender;
+		super(nounBase);
+		this.baseNoun = nounBase;
+		this.root = rootBase;
 	}
 
-	public int getId() {
-		return id;
+	public String getForm(Case acase) 
+	{
+		String res;
+		if (baseNoun.getBaseNoun() == null)
+		{
+			res = root.getS();
+		}
+		else
+		{
+			res = root.getSWithLink();
+		}
+		
+		res += baseNoun.getForm(acase);
+		
+		return res;
 	}
 
-	public String getS() {
-		return s;
+	@Override
+	protected NounBase getBaseNoun()
+	{
+		return baseNoun;
 	}
 	
-	public Gender getGender()
+	public RootBase getRoot()
 	{
-		return gender;
+		return root;
+	}
+	
+	public RootBase[] getRoots()
+	{
+		ArrayList<RootBase> roots = new ArrayList<RootBase>();
+		NounBase nb = this;
+		do
+		{
+			roots.add(0, ((Noun)nb).getRoot());
+			nb = nb.getBaseNoun();
+		}
+		while (nb instanceof Noun);
+		
+		return roots.toArray(new RootBase[] {});
 	}
 }

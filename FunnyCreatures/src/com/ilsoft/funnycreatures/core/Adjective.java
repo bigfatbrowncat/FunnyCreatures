@@ -1,5 +1,7 @@
 package com.ilsoft.funnycreatures.core;
 
+import java.util.ArrayList;
+
 import com.ilsoft.funnycreatures.core.NounBase.Gender;
 
 public class Adjective extends AdjectiveBase
@@ -75,4 +77,17 @@ public class Adjective extends AdjectiveBase
 		return baseAdjective;
 	}
 	
+	public RootBase[] getRoots()
+	{
+		ArrayList<RootBase> roots = new ArrayList<RootBase>();
+		AdjectiveBase ab = this;
+		do
+		{
+			roots.add(0, ((Adjective)ab).getRoot());
+			ab = ab.getBaseAdjective();
+		}
+		while (ab instanceof Adjective);
+		
+		return roots.toArray(new RootBase[] {});
+	}	
 }

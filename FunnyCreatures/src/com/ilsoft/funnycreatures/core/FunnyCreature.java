@@ -30,4 +30,9 @@ public class FunnyCreature
 		return noun;
 	}
 
+	public Adjective[] getAdjectives()
+	{
+		return adjectives;
+	}
+	
 }

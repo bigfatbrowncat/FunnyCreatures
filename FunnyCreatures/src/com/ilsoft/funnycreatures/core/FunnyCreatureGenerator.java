@@ -3,13 +3,14 @@ package com.ilsoft.funnycreatures.core;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.ilsoft.funnycreatures.core.NounBase.Gender;
-import com.ilsoft.funnycreatures.core.RootBase.RootLink;
-
 import android.util.Log;
+
+import com.ilsoft.funnycreatures.core.RootBase.RootLink;
 
 public class FunnyCreatureGenerator
 {
+	public static final int ROOT_FALSE = 601;
+	
 	public static final RootBase[] roots = new RootBase[]
 	{
 		// Животнов(о)
@@ -90,7 +91,7 @@ public class FunnyCreatureGenerator
 		new RootBase(515, "злобнозырк", RootLink.O),
 		
 		new RootBase(600, "обыкновенн", RootLink.O),
-		new RootBase(601, "ложн", RootLink.O),
+		new RootBase(ROOT_FALSE, "ложн", RootLink.O),
 		new RootBase(602, "пустынн", RootLink.O),
 		new RootBase(603, "речн", RootLink.O),
 		new RootBase(604, "лесн", RootLink.O),
@@ -173,7 +174,7 @@ public class FunnyCreatureGenerator
 		),
 		
 		new Adjective(getRoot(600), AdjectiveBase.HARD),
-		new Adjective(getRoot(601), AdjectiveBase.HARD),
+		new Adjective(getRoot(ROOT_FALSE), AdjectiveBase.HARD),
 		new Adjective(getRoot(602), AdjectiveBase.HARD),
 		new Adjective(getRoot(603), AdjectiveBase.OLD),
 		new Adjective(getRoot(604), AdjectiveBase.OLD),
@@ -258,7 +259,7 @@ public class FunnyCreatureGenerator
 	
 	public static final int[] singleAdjectiveRoots = new int[]
 	{
-		600, 601, 602, 603, 604, 605, 606, 607, 608, 609,
+		600, ROOT_FALSE, 602, 603, 604, 605, 606, 607, 608, 609,
 	};
 
 	public static final int[] singleNounRoots = new int[]

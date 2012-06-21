@@ -264,7 +264,7 @@ public class FunnyCreatureGenerator
 
 	public static final int[] singleNounRoots = new int[]
 	{
-		500, 501, 502, 503, 504, 505, 506, 507, 608, 509, 510, 511, 512, 513, 514, 515
+		500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515
 	};
 	
 	public static final int[] lastNounRoots = new int[]

@@ -139,7 +139,7 @@ public class FunnyCreatureGenerator
 		new Adjective(new RootWithSuffixes(getRoot(300), Suffix.YAN, RootLink.O), AdjectiveBase.HARD),
 		new Adjective(getRoot(301), AdjectiveBase.OLD),
 		new Adjective(new RootWithSuffixes(new RootWithSuffixes(getRoot(302), Suffix.OV, RootLink.O), Suffix.AT, RootLink.O), AdjectiveBase.HARD),
-		new Adjective(new RootWithSuffixes(getRoot(303), Suffix.OV, RootLink.O), AdjectiveBase.OLD),
+		new Adjective(getRoot(303), AdjectiveBase.SOFT),
 		new Adjective(getRoot(304), AdjectiveBase.HARD),
 		new Adjective(getRoot(305), AdjectiveBase.SOFT),
 		new Adjective(getRoot(306), AdjectiveBase.HARD),
@@ -242,15 +242,16 @@ public class FunnyCreatureGenerator
 	}
 	
 	
-	public static final int[] firstRootParts = new int[]
+	public static final int[] rootsEnabledForFirstAdjectiveOrNounPart = new int[]
 	{
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
 		100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 
 		200, 201, 202, 203, 204, 205,
 		300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319,
+		411,
 	};
 
-	public static final int[] lastRootParts = new int[]
+	public static final int[] rootsForLastAdjectivePart = new int[]
 	{
 		100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110,
 		303, 
@@ -298,7 +299,21 @@ public class FunnyCreatureGenerator
 	
 	private static IdPair[] bannedGlobals = new IdPair[]
 	{
-		new IdPair(609, 511)	// подкамневый камнегрыз
+		new IdPair(609, 511),	// подкамневый камнегрыз
+
+		new IdPair(602, 603),
+		new IdPair(602, 604),
+		new IdPair(602, 605),
+		new IdPair(602, 607),
+
+		new IdPair(603, 604),
+		new IdPair(603, 605),
+		new IdPair(603, 607),
+
+		new IdPair(604, 605),
+		new IdPair(604, 607),
+
+		new IdPair(605, 607),
 	};
 	
 	private static boolean isBanned(Integer[] ids)
@@ -312,7 +327,8 @@ public class FunnyCreatureGenerator
 			// Checking if the global is banned
 			for (int k = 0; k < bannedGlobals.length; k++)
 			{
-				if (bannedGlobals[k].getId1() == ids[i] && bannedGlobals[k].getId2() == ids[j])
+				if ((bannedGlobals[k].getId1() == ids[i] && bannedGlobals[k].getId2() == ids[j]) ||
+					(bannedGlobals[k].getId2() == ids[i] && bannedGlobals[k].getId1() == ids[j]))
 				{
 					return true;
 				}
@@ -360,10 +376,10 @@ public class FunnyCreatureGenerator
 				if (adjectiveIsCompound[i])
 				{
 					// Generating the last adjective root
-					ids.add(lastRootParts[rnd.nextInt(lastRootParts.length)]);
+					ids.add(rootsForLastAdjectivePart[rnd.nextInt(rootsForLastAdjectivePart.length)]);
 
 					// Generating first adjective root
-					ids.add(firstRootParts[rnd.nextInt(firstRootParts.length)]);
+					ids.add(rootsEnabledForFirstAdjectiveOrNounPart[rnd.nextInt(rootsEnabledForFirstAdjectiveOrNounPart.length)]);
 				}
 				else
 				{
@@ -375,7 +391,7 @@ public class FunnyCreatureGenerator
 			if (nounIsCompound)
 			{
 				ids.add(lastNounRoots[rnd.nextInt(lastNounRoots.length)]);
-				ids.add(firstRootParts[rnd.nextInt(firstRootParts.length)]);
+				ids.add(rootsEnabledForFirstAdjectiveOrNounPart[rnd.nextInt(rootsEnabledForFirstAdjectiveOrNounPart.length)]);
 			}
 			else
 			{

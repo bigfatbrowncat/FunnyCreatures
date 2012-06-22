@@ -26,7 +26,7 @@ public class FunnyCreaturesWalkActivity extends Activity
 	private LinearLayout youMeetCreature_LinearLayout;
 	private LinearLayout goForAWalk_LinearLayout;
 
-    private Random rnd = new Random();
+    private Random rnd = new Random(1);
     private volatile ProgressDialog pd = null;
 
     Runnable walkingRunnable = new Runnable()

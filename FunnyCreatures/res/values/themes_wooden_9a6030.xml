@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Generated with http://android-holo-colors.com -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <style name="wooden_9a6030" parent="android:Theme.Black">
+
+      <item name="android:windowNoTitle">true</item>
+      
+    <item name="android:editTextStyle">@style/EditTextwooden_9a6030</item>
+
+    <item name="android:buttonStyle">@style/Buttonwooden_9a6030</item>
+
+    <item name="android:imageButtonStyle">@style/ImageButtonwooden_9a6030</item>
+
+    <item name="android:spinnerStyle">@style/Spinnerwooden_9a6030</item>
+
+    <item name="android:dropDownSpinnerStyle">@style/Spinnerwooden_9a6030.DropDown</item>
+
+    <item name="android:spinnerDropDownItemStyle">@style/SpinnerDropDownItemwooden_9a6030</item>
+
+    <item name="android:progressBarStyleHorizontal">@style/ProgressBarwooden_9a6030</item>
+
+    <item name="android:seekBarStyle">@style/SeekBarwooden_9a6030</item>
+
+  </style>
+
+</resources>

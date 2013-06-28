@@ -2,60 +2,72 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_margin="10pt"
+    android:background="@drawable/wooden_bg"
     android:gravity="center"
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/youMeetCreature_LinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"  >
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/you_meet" />
-
-        <TextView
-            android:id="@+id/creatureName_TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="6pt"
-            android:layout_marginTop="0pt"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textIsSelectable="true" />
-
-        <TextView
-            android:id="@+id/creatureDescription_TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12pt"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <Button
-            android:id="@+id/goForward_Button"
-            style="@android:style/Widget.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/go_forward" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/goForAWalk_LinearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:orientation="vertical" >
-
-        <Button
-            android:id="@+id/goForAWalk_Button"
-            style="@android:style/Widget.Button"
+
+        <LinearLayout
+            android:id="@+id/youMeetCreature_LinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/go_for_a_walk" />
+            android:orientation="vertical"
+            android:visibility="gone" >
 
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                style="@style/TextViewDark"
+                android:text="@string/you_meet" />
+
+            <TextView
+                android:id="@+id/creatureName_TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="6pt"
+                android:layout_marginTop="0pt"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                style="@style/TextViewLight"
+                android:textIsSelectable="true" />
+
+            <TextView
+                android:id="@+id/creatureDescription_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="12pt"
+                style="@style/TextViewDark"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <Button
+                android:id="@+id/goForward_Button"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_gravity="bottom"
+                android:text="@string/go_forward" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/goForAWalk_LinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/goForAWalk_Button"
+                style="@style/Buttonwooden_9a6030"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="@string/go_for_a_walk" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

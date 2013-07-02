@@ -7,7 +7,7 @@ import android.util.Log;
 
 import com.ilsoft.funnycreatures.core.RootBase.RootLink;
 
-public class FunnyCreatureGenerator
+public class SpeciesNameGenerator
 {
 	public static final int ROOT_FALSE = 601;
 	
@@ -352,7 +352,7 @@ public class FunnyCreatureGenerator
 		return false;
 	}
 	
-	public static FunnyCreature generate(Random rnd)
+	public static SpeciesName generate(Random rnd)
 	{
 		ArrayList<Integer> ids = new ArrayList<Integer>();
 
@@ -432,7 +432,7 @@ public class FunnyCreatureGenerator
 			noun = getNounLastPart(ids.get(idIndex));
 		}
 
-		FunnyCreature generatedCreature = new FunnyCreature(adjectives, noun);
+		SpeciesName generatedCreature = new SpeciesName(adjectives, noun);
 		
 		return generatedCreature;
 	}

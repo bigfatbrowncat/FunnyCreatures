@@ -1,11 +1,11 @@
 package com.ilsoft.funnycreatures.core;
 
-public class FunnyCreature
+public class SpeciesName
 {
 	private Adjective[] adjectives;
 	private Noun noun;
 
-	public FunnyCreature(Adjective[] adjectives, Noun noun)
+	public SpeciesName(Adjective[] adjectives, Noun noun)
 	{
 		this.adjectives = adjectives;
 		this.noun = noun;

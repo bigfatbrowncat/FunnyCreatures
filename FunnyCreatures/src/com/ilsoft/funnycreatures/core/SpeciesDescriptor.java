@@ -1,7 +1,7 @@
 package com.ilsoft.funnycreatures.core;
 
 
-public class FunnyCreatureDescriptor
+public class SpeciesDescriptor
 {
 	private static final String unknown = "Данный вид пока не известен науке";
 	private static final DescriptionForId[] descriptionsForSimpleClasses = new DescriptionForId[]
@@ -130,7 +130,7 @@ public class FunnyCreatureDescriptor
 		return null;
 	}
 	
-	public static String describe(FunnyCreature creature)
+	public static String describe(SpeciesName creature)
 	{
 		StringBuilder desc = new StringBuilder();
 		boolean knowNothing = true;
@@ -143,7 +143,7 @@ public class FunnyCreatureDescriptor
 			{
 				Adjective adj = creature.getAdjectives()[i];
 				if ((adj.getRoots().length == 1) && 
-					(adj.getRoots()[0].getId() == FunnyCreatureGenerator.ROOT_FALSE))
+					(adj.getRoots()[0].getId() == SpeciesNameGenerator.ROOT_FALSE))
 				{
 					return getDescriptionsForFalseSimpleClass(rb[0].getId()).getS();
 				}

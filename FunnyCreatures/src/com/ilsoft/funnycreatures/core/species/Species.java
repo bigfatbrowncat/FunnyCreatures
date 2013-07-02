@@ -28,10 +28,12 @@ public class Species {
 	 * Окончание конечностей
 	 */
 	private enum LimbsFinishing {
-		Claws, 
+		Claws, 			// Когти
+		Hooves			// Копыта
 	}
 	
 	private int limbsNumber;
+	private LimbsFinishing limbsFinishing;
 	
 	
 	private FeedingType feedingType;

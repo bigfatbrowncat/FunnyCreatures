@@ -7,7 +7,7 @@ package com.ilsoft.funnycreatures.core.species;
 public class Species {
 
 	/**
-	 * Тип питания
+	 * Типы питания
 	 */
 	public enum FeedingType {
 		Predator,		// Хищник 
@@ -16,7 +16,7 @@ public class Species {
 	}
 	
 	/**
-	 * Ареал обитания
+	 * Ареалы обитания
 	 */
 	public enum HabitatType {
 		Glade,			// Поляна
@@ -25,17 +25,35 @@ public class Species {
 	}
 	
 	/**
-	 * Окончание конечностей
+	 * Окончания конечностей
 	 */
 	private enum LimbsFinishing {
 		Claws, 			// Когти
 		Hooves			// Копыта
 	}
 	
+	/**
+	 * Количество конечностей
+	 */
 	private int limbsNumber;
+
+	/**
+	 * Количество пальцев
+	 */
+	private int fingersNumber;
+	
+	/**
+	 * Окончание конечностей
+	 */
 	private LimbsFinishing limbsFinishing;
 	
-	
+	/**
+	 * Тип питания
+	 */
 	private FeedingType feedingType;
+	
+	/**
+	 * Ареал обитания
+	 */
 	private HabitatType habitatType;
 }

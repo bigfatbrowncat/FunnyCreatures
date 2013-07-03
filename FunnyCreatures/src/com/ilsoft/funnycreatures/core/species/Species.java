@@ -27,10 +27,68 @@ public class Species {
 	/**
 	 * Окончания конечностей
 	 */
-	private enum LimbsFinishing {
+	public enum LimbsFinishing {
 		Claws, 			// Когти
 		Hooves			// Копыта
 	}
+	
+	public static class Covering
+	{
+		public enum Type {
+			None,		// Нет
+			Fur,		// Мех
+			Squama,		// Чешуя
+			Spines,		// Иглы
+		}
+
+		public enum Length {
+			Short, Long
+		}
+		
+		public enum Density {
+			Dense, Rare
+		}
+		
+		public enum Softness {
+			Soft, Hard
+		}
+		
+		private Type type;
+		private Length length;
+		private Density density;
+		private Softness softness;
+		
+		public Type getType() {
+			return type;
+		}
+		public Length getLength() {
+			return length;
+		}
+		public Density getDensity() {
+			return density;
+		}
+		public Softness getSoftness() {
+			return softness;
+		}
+		
+		public Covering(Type type, Length length, Density density, Softness softness) {
+			this.type = type;
+			this.length = length;
+			this.density = density;
+			this.softness = softness;
+		}
+	}
+	
+	
+	private Covering defaultCovering;	// Стандартное покрытие (если не указано иное, считать покрытие таким)
+	private Covering backCovering, 		// Покрытие спины
+		bellyCovering, 
+		chestCovering,
+		frontLimbsCovering, 
+		backLimbsCovering, 
+		tailCovering, 
+		snoutCovering;					// Покрытие морды
+	
 	
 	/**
 	 * Количество конечностей
@@ -56,4 +114,12 @@ public class Species {
 	 * Ареал обитания
 	 */
 	private HabitatType habitatType;
+	
+	public int getLimbsNumber() {
+		return limbsNumber;
+	}
+	
+	public int getFingersNumber() {
+		return fingersNumber;
+	}
 }

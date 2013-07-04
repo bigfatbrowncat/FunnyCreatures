@@ -4,6 +4,10 @@ import com.ilsoft.funnycreatures.core.NounBase.Gender;
 
 public class AdjectiveBase
 {
+	/*
+	 * "ый", "ого", "ому", "ого", "ым", "ом"
+	 * "ая", "ой", "ой", "ую", "ой", "ой"
+	 */
 	public static final AdjectiveBase HARD = new AdjectiveBase(
 		new String[]
 		{
@@ -14,7 +18,11 @@ public class AdjectiveBase
 			"ая", "ой", "ой", "ую", "ой", "ой"
 		}
 	);
-		
+	
+	/**
+	 * "ий", "ого", "ому", "ого", "им", "ом",
+	 * "ая", "ую", "ой", "ую", "ой", "ой",
+	 */
 	public static final AdjectiveBase SOFT = new AdjectiveBase(
 		new String[]
 		{
@@ -26,6 +34,10 @@ public class AdjectiveBase
 		}
 	);
 				
+	/**
+	 * "ой", "ого", "ому", "ого", "ым", "ом"
+	 * "ая", "ой", "ой", "ую", "ой", "ой"
+	 */
 	public static final AdjectiveBase OLD = new AdjectiveBase(
 		new String[]
 		{

@@ -47,11 +47,21 @@ public class Names {
 	public static final int ROOT_FAMILY_EVILEYE = 515;
 
 	public static final int ROOT_TAIL = 100;
+	public static final int ROOT_EAR = 101;
 	public static final int ROOT_LIMB = 102;
 	public static final int ROOT_SNOUT = 104;
+	public static final int ROOT_BUTT = 105;
+	public static final int ROOT_NOSE = 106;
 	public static final int ROOT_BELLY = 108;
+	public static final int ROOT_BEAK = 109;
+	public static final int ROOT_PROBOSCIS = 111;
+	public static final int ROOT_FANG = 112;
 	
+	public static final int ROOT_RAKE = 300;
+	public static final int ROOT_SKEW = 301;
+	public static final int ROOT_GNARLY = 302;
 	public static final int ROOT_HORN = 303;
+	public static final int ROOT_MEMBRANOUS = 304;
 	public static final int ROOT_SMOOTH = 305;
 	public static final int ROOT_LONG = 310;
 	public static final int ROOT_SHORT = 311;
@@ -80,32 +90,30 @@ public class Names {
 	static {
 		// Частетельно
 		roots.put(ROOT_TAIL, new Root("хвост", RootLink.O));
-		roots.put(101, new Root("ух", RootLink.O));
+		roots.put(ROOT_EAR, new Root("ух", RootLink.O));
 		roots.put(ROOT_LIMB, new Root("лап", RootLink.O));
-		roots.put(103, new Root("лапчат", RootLink.O));
 		roots.put(ROOT_SNOUT, new Root("морд", RootLink.O));
-		roots.put(105, new Root("зад", RootLink.O));
-		roots.put(106, new Root("нос", RootLink.O));
-		roots.put(107, new Root("крыл", RootLink.O));
+		roots.put(ROOT_BUTT, new Root("зад", RootLink.O));
+		roots.put(ROOT_NOSE, new Root("нос", RootLink.O));
 		roots.put(ROOT_BELLY, new Root("пуз", RootLink.O));
-		roots.put(109, new Root("клюв", RootLink.O));
-		roots.put(110, new Root("хобот", RootLink.O));
-		roots.put(111, new Root("ноздр", RootLink.E));
-		roots.put(112, new Root("клыкаст", RootLink.O));
+		roots.put(ROOT_BEAK, new Root("клюв", RootLink.O));
+		roots.put(ROOT_PROBOSCIS, new Root("хобот", RootLink.O));
+		roots.put(ROOT_FANG, new Root("клыкаст", RootLink.O));
 		
-		// Внешне
-		roots.put(300, new Root("грабл", RootLink.E));
-		roots.put(301, new Root("кос", RootLink.O));
-		roots.put(302, new Root("шишк", RootLink.O));
 		roots.put(ROOT_HORN, new Root("рог", RootLink.O));
-		roots.put(304, new Root("перепончат", RootLink.O));
 		roots.put(ROOT_SMOOTH, new Root("гладк", RootLink.O));
+		roots.put(ROOT_LONG, new Root("длинн", RootLink.O));
+		roots.put(ROOT_SHORT, new Root("коротк", RootLink.O));
+
+		// Внешне
+		roots.put(ROOT_RAKE, new Root("грабл", RootLink.E));
+		roots.put(ROOT_SKEW, new Root("кос", RootLink.O));
+		roots.put(ROOT_GNARLY, new Root("шишк", RootLink.O));
+		roots.put(ROOT_MEMBRANOUS, new Root("перепончат", RootLink.O));
 		roots.put(306, new Root("полосат", RootLink.O));
 		roots.put(307, new Root("пятнист", RootLink.O));
 		roots.put(308, new Root("туп", RootLink.O));
 		roots.put(309, new Root("остр", RootLink.O));
-		roots.put(ROOT_LONG, new Root("длинн", RootLink.O));
-		roots.put(ROOT_SHORT, new Root("коротк", RootLink.O));
 		roots.put(312, new Root("выпукл", RootLink.O));
 		roots.put(313, new Root("узк", RootLink.O));
 		roots.put(314, new Root("продолговат", RootLink.O));
@@ -173,27 +181,20 @@ public class Names {
 	}
 	
 	
-	/*
-	 * 
-	 * 	public static final Adjective[] adjectiveLastParts = new Adjective[]
-	{
-
-		
-		new Adjective(getRoot(100), AdjectiveBase.HARD),
-		new Adjective(getRoot(101), AdjectiveBase.SOFT),
-		new Adjective(getRoot(102), AdjectiveBase.HARD),
-		new Adjective(getRoot(103), AdjectiveBase.HARD),
-		new Adjective(getRoot(104), AdjectiveBase.HARD),
-		new Adjective(getRoot(105), AdjectiveBase.HARD),
-		new Adjective(getRoot(106), AdjectiveBase.HARD),
-		new Adjective(getRoot(107), AdjectiveBase.HARD),
-		new Adjective(getRoot(108), AdjectiveBase.HARD),
-		new Adjective(getRoot(109), AdjectiveBase.HARD),
-		new Adjective(new RootWithSuffixes(getRoot(110), Suffix.N, RootLink.O), AdjectiveBase.HARD),
-		new Adjective(new RootWithSuffixes(getRoot(111), Suffix.YAN, RootLink.O), AdjectiveBase.OLD),
-		new Adjective(getRoot(112), AdjectiveBase.HARD),
-
-		new Adjective(new RootWithSuffixes(getRoot(300), Suffix.YAN, RootLink.O), AdjectiveBase.HARD),
+	public static final HashMap<Integer, Adjective> adjectiveLastParts = new HashMap<Integer, Adjective>();
+	static {
+		adjectiveLastParts.put(ROOT_TAIL, new Adjective(roots.get(ROOT_TAIL), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_EAR, new Adjective(roots.get(ROOT_EAR), AdjectiveBase.SOFT));
+		adjectiveLastParts.put(ROOT_LIMB, new Adjective(roots.get(ROOT_LIMB), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_SNOUT, new Adjective(roots.get(ROOT_SNOUT), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_BUTT, new Adjective(roots.get(ROOT_BUTT), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_NOSE, new Adjective(roots.get(ROOT_NOSE), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_BELLY, new Adjective(roots.get(ROOT_BELLY), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_BEAK, new Adjective(roots.get(ROOT_BEAK), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_PROBOSCIS, new Adjective(new RootWithSuffixes(roots.get(ROOT_PROBOSCIS), Suffix.YAN, RootLink.O), AdjectiveBase.OLD));
+		adjectiveLastParts.put(ROOT_FANG, new Adjective(roots.get(ROOT_FANG), AdjectiveBase.HARD));
+	}
+/*		new Adjective(new RootWithSuffixes(getRoot(300), Suffix.YAN, RootLink.O), AdjectiveBase.HARD),
 		new Adjective(getRoot(301), AdjectiveBase.OLD),
 		new Adjective(new RootWithSuffixes(new RootWithSuffixes(getRoot(302), Suffix.OV, RootLink.O), Suffix.AT, RootLink.O), AdjectiveBase.HARD),
 		new Adjective(getRoot(303), AdjectiveBase.SOFT),
@@ -242,5 +243,5 @@ public class Names {
 		new Adjective(getRoot(609), AdjectiveBase.HARD),
 	};*/
 	 
-
 }
+

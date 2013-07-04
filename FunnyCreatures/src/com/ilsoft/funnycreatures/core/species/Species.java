@@ -686,10 +686,10 @@ public class Species {
 		LimbsFinishing limbsFinishing = LimbsFinishing.generate(rnd);
 		FeedingType feedingType = FeedingType.generate(rnd);
 		HabitatType habitatType = HabitatType.generate(rnd);
-		int limbsNumber = rnd.nextInt(5) == 0 ? rnd.nextInt(7) + 1 : 4; /* С вероятностью 1/5 - от 1 до 8. Иначе - 4 */
-		int fingersNumber =  rnd.nextInt(5) == 0 ? rnd.nextInt(6) + 1 : 5; /* С вероятностью 1/5 - от 1 до 7. Иначе - 5 */
-		int eyesNumber =  rnd.nextInt(5) == 0 ? rnd.nextInt(6) + 1 : 2; /* С вероятностью 1/5 - от 1 до 7. Иначе - 2 */
-		int hornsNumber =  rnd.nextInt(5) == 0 ? rnd.nextInt(3) + 1 : 0; /* С вероятностью 1/5 - от 1 до 3. Иначе - нет */
+		int limbsNumber = rnd.nextInt(5) == 0 ? rnd.nextInt(7) + 1 : 4; 	/* С вероятностью 1/5 - от 1 до 8. Иначе - 4 */
+		int fingersNumber =  rnd.nextInt(5) == 0 ? rnd.nextInt(6) + 1 : 5; 	/* С вероятностью 1/5 - от 1 до 7. Иначе - 5 */
+		int eyesNumber =  rnd.nextInt(5) == 0 ? rnd.nextInt(6) + 1 : 2; 	/* С вероятностью 1/5 - от 1 до 7. Иначе - 2 */
+		int hornsNumber =  rnd.nextInt(5) == 0 ? rnd.nextInt(3) + 1 : 0; 	/* С вероятностью 1/5 - от 1 до 3. Иначе - нет */
 		
 		long nameGeneratorSeed = rnd.nextLong();
 		long descriprionGeneratorSeed = rnd.nextLong();

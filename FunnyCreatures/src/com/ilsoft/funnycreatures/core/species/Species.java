@@ -19,6 +19,7 @@ public class Species {
 	 * Ареалы обитания
 	 */
 	public enum HabitatType {
+		Desert,			// Пустыня
 		Glade,			// Поляна
 		Forest,			// Лес
 		RiverShore		// Берег реки
@@ -30,6 +31,10 @@ public class Species {
 	public enum LimbsFinishing {
 		Claws, 			// Когти
 		Hooves			// Копыта
+	}
+	
+	public enum TailType {
+		Long, Rounded, Short, None
 	}
 	
 	public static class Covering
@@ -115,6 +120,91 @@ public class Species {
 	 */
 	private HabitatType habitatType;
 	
+	private int eyesNumber;
+	private int hornsNumber;
+	
+	public int getEyesNumber() {
+		return eyesNumber;
+	}
+	public int getHornsNumber() {
+		return hornsNumber;
+	}
+	public Species(Covering defaultCovering,
+	               Covering backCovering,
+	               Covering bellyCovering,
+	               Covering chestCovering,
+	               Covering frontLimbsCovering,
+	               Covering backLimbsCovering,
+	               Covering tailCovering,
+	               Covering snoutCovering,
+	               LimbsFinishing limbsFinishing,
+	               FeedingType feedingType,
+	               HabitatType habitatType,
+	               int limbsNumber,
+	               int fingersNumber,
+	               int eyesNumber,
+	               int hornsNumber)	{
+		this.defaultCovering = defaultCovering;
+		this.backCovering = backCovering;
+		this.bellyCovering = bellyCovering;
+		this.chestCovering = chestCovering;
+		this.frontLimbsCovering = frontLimbsCovering;
+		this.backLimbsCovering = backLimbsCovering;
+		this.tailCovering = tailCovering;
+		this.snoutCovering = snoutCovering;
+		this.limbsFinishing = limbsFinishing;
+		this.feedingType = feedingType;
+		this.habitatType = habitatType;
+		this.limbsNumber = limbsNumber;
+		this.fingersNumber = fingersNumber;
+		this.eyesNumber = eyesNumber;
+		this.hornsNumber = hornsNumber;
+	}
+	
+	public Covering getDefaultCovering() {
+		return defaultCovering;
+	}
+
+	public Covering getBackCovering() {
+		return backCovering;
+	}
+
+	public Covering getBellyCovering() {
+		return bellyCovering;
+	}
+
+	public Covering getChestCovering() {
+		return chestCovering;
+	}
+
+	public Covering getFrontLimbsCovering() {
+		return frontLimbsCovering;
+	}
+
+	public Covering getBackLimbsCovering() {
+		return backLimbsCovering;
+	}
+
+	public Covering getTailCovering() {
+		return tailCovering;
+	}
+
+	public Covering getSnoutCovering() {
+		return snoutCovering;
+	}
+
+	public LimbsFinishing getLimbsFinishing() {
+		return limbsFinishing;
+	}
+
+	public FeedingType getFeedingType() {
+		return feedingType;
+	}
+
+	public HabitatType getHabitatType() {
+		return habitatType;
+	}
+
 	public int getLimbsNumber() {
 		return limbsNumber;
 	}

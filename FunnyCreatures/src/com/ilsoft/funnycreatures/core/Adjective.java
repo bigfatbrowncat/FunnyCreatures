@@ -6,7 +6,7 @@ import com.ilsoft.funnycreatures.core.NounBase.Gender;
 
 public class Adjective extends AdjectiveBase
 {
-	private RootBase root;
+	private Root root;
 	private AdjectiveBase baseAdjective = null;
 
 	@Override
@@ -18,7 +18,7 @@ public class Adjective extends AdjectiveBase
 	/**
 	 * Six forms for male and female
 	 */
-	public Adjective(RootBase root, AdjectiveBase baseAdjective)
+	public Adjective(Root root, AdjectiveBase baseAdjective)
 	{
 		super(baseAdjective.getEnding());
 		this.root = root;
@@ -67,7 +67,7 @@ public class Adjective extends AdjectiveBase
 			return getFemaleForm(acase);
 	}
 	
-	public RootBase getRoot()
+	public Root getRoot()
 	{
 		return root;
 	}
@@ -77,9 +77,9 @@ public class Adjective extends AdjectiveBase
 		return baseAdjective;
 	}
 	
-	public RootBase[] getRoots()
+	public Root[] getRoots()
 	{
-		ArrayList<RootBase> roots = new ArrayList<RootBase>();
+		ArrayList<Root> roots = new ArrayList<Root>();
 		AdjectiveBase ab = this;
 		do
 		{
@@ -88,6 +88,6 @@ public class Adjective extends AdjectiveBase
 		}
 		while (ab instanceof Adjective);
 		
-		return roots.toArray(new RootBase[] {});
+		return roots.toArray(new Root[] {});
 	}	
 }

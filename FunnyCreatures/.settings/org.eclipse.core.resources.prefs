@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/com/ilsoft/funnycreatures/core/AdjectiveBase.java=UTF-8
 encoding//src/com/ilsoft/funnycreatures/core/NounBase.java=UTF-8
-encoding//src/com/ilsoft/funnycreatures/core/RootBase.java=UTF-8
+encoding//src/com/ilsoft/funnycreatures/core/Root.java=UTF-8
 encoding//src/com/ilsoft/funnycreatures/core/Suffix.java=UTF-8
 encoding//src/com/ilsoft/funnycreatures/ui/FunnyCreaturesWalkActivity.java=UTF-8
 encoding/<project>=UTF-8

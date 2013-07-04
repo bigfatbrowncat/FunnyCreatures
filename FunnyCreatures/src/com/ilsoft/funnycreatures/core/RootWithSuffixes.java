@@ -1,11 +1,11 @@
 package com.ilsoft.funnycreatures.core;
 
-public class RootWithSuffixes extends RootBase
+public class RootWithSuffixes extends Root
 {
-	private RootBase baseRoot;
+	private Root baseRoot;
 	private Suffix suffix;
 	
-	public RootWithSuffixes(RootBase baseRoot, Suffix suffix, RootLink link)
+	public RootWithSuffixes(Root baseRoot, Suffix suffix, RootLink link)
 	{
 		super(baseRoot.getRootBase());
 		this.baseRoot = baseRoot;
@@ -13,7 +13,7 @@ public class RootWithSuffixes extends RootBase
 		this.link = link;
 	}
 	
-	protected RootBase getRootBase() 
+	protected Root getRootBase() 
 	{
 		return super.getRootBase();
 	}

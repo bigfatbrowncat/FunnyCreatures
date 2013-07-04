@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Noun extends NounBase
 {
-	private RootBase root;
+	private Root root;
 	private NounBase baseNoun;
 	
-	public Noun(RootBase rootBase, NounBase nounBase)
+	public Noun(Root rootBase, NounBase nounBase)
 	{
 		super(nounBase);
 		this.baseNoun = nounBase;
@@ -37,14 +37,14 @@ public class Noun extends NounBase
 		return baseNoun;
 	}
 	
-	public RootBase getRoot()
+	public Root getRoot()
 	{
 		return root;
 	}
 	
-	public RootBase[] getRoots()
+	public Root[] getRoots()
 	{
-		ArrayList<RootBase> roots = new ArrayList<RootBase>();
+		ArrayList<Root> roots = new ArrayList<Root>();
 		NounBase nb = this;
 		do
 		{
@@ -53,6 +53,6 @@ public class Noun extends NounBase
 		}
 		while (nb instanceof Noun);
 		
-		return roots.toArray(new RootBase[] {});
+		return roots.toArray(new Root[] {});
 	}
 }

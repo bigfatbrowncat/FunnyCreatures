@@ -2,6 +2,9 @@ package com.ilsoft.funnycreatures.core;
 
 public class NounBase
 {
+	/**
+	 * "а", "и", "е", "у", "ой", "е"
+	 */
 	public static final NounBase F_HARD_1 = new NounBase
 	(
 		Gender.Female,
@@ -10,6 +13,10 @@ public class NounBase
 			"а", "и", "е", "у", "ой", "е"
 		}
 	);
+
+	/**
+	 * "я", "и", "е", "ю", "ей", "е"
+	 */
 	public static final NounBase F_SOFT_1 = new NounBase
 	(
 		Gender.Female,
@@ -19,6 +26,9 @@ public class NounBase
 		}
 	);
 
+	/**
+	 * "", "а", "у", "а", "ом", "е"
+	 */
 	public static final NounBase M_HARD_1 = new NounBase
 	(
 		Gender.Male,
@@ -28,6 +38,9 @@ public class NounBase
 		}
 	);
 
+	/**
+	 * "й", "я", "ю", "й", "ем", "е"
+	 */
 	public static final NounBase M_SOFT_1 = new NounBase
 	(
 		Gender.Male,
@@ -37,6 +50,9 @@ public class NounBase
 		}
 	);
 	
+	/**
+	 * "ень", "ня", "ню", "ня", "нем", "не"
+	 */
 	public static final NounBase M_2 = new NounBase
 	(
 		Gender.Male,

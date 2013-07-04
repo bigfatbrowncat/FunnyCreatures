@@ -1,6 +1,6 @@
 package com.ilsoft.funnycreatures.core;
 
-public class RootBase
+public class Root
 {
 	public enum RootLink
 	{
@@ -18,26 +18,19 @@ public class RootBase
 		}
 	}
 	
-	private int id;
 	private String s;
 	protected RootLink link;
 	
-	public RootBase(int id, String s, RootLink link)
+	public Root(String s, RootLink link)
 	{
-		this.id = id;
 		this.s = s;
 		this.link = link;
 	}
 
-	public RootBase(RootBase root)
+	public Root(Root root)
 	{
-		this.id = root.id;
 		this.s = root.s;
 		this.link = root.link;
-	}
-
-	public int getId() {
-		return id;
 	}
 
 	public String getS()
@@ -50,7 +43,7 @@ public class RootBase
 		return s + link.getS();
 	}
 	
-	protected RootBase getRootBase()
+	protected Root getRootBase()
 	{
 		return this;
 	}

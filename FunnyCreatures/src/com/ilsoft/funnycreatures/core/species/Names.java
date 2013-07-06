@@ -63,16 +63,21 @@ public class Names {
 	public static final int ROOT_HORN = 303;
 	public static final int ROOT_MEMBRANOUS = 304;
 	public static final int ROOT_SMOOTH = 305;
-	public static final int ROOT_STRIPED = 306;
-	public static final int ROOT_DOTTED = 307;
 	public static final int ROOT_BLUNT = 308;
 	public static final int ROOT_SHARP = 309;
 	public static final int ROOT_CONVEX = 312;
 	public static final int ROOT_NARROW = 313;
+	public static final int ROOT_FLAP = 315;
+	public static final int ROOT_STICK_OUT = 316;
 
 	public static final int ROOT_LONG = 310;
 	public static final int ROOT_OBLONG = 314;
 	public static final int ROOT_SHORT = 311;
+	public static final int ROOT_THICK = 318;
+
+	public static final int ROOT_STRIPED = 306;
+	public static final int ROOT_DOTTED = 307;
+	public static final int ROOT_PALE = 319;
 
 	public static final int ROOT_BOLDY = 408;
 	public static final int ROOT_FURRY = 409;
@@ -113,6 +118,7 @@ public class Names {
 		roots.put(ROOT_LONG, new Root("длинн", RootLink.O));
 		roots.put(ROOT_OBLONG, new Root("продолговат", RootLink.O));
 		roots.put(ROOT_SHORT, new Root("коротк", RootLink.O));
+		roots.put(ROOT_THICK, new Root("толст", RootLink.O));
 
 		// Внешне
 		roots.put(ROOT_RAKE, new Root("грабл", RootLink.E));
@@ -125,11 +131,9 @@ public class Names {
 		roots.put(ROOT_SHARP, new Root("остр", RootLink.O));
 		roots.put(ROOT_CONVEX, new Root("выпукл", RootLink.O));
 		roots.put(ROOT_NARROW, new Root("узк", RootLink.O));
-		roots.put(315, new Root("висл", RootLink.O));
-		roots.put(316, new Root("торчк", RootLink.O));
-		roots.put(317, new Root("шипаст", RootLink.O));
-		roots.put(318, new Root("толст", RootLink.O));
-		roots.put(319, new Root("бледн", RootLink.O));
+		roots.put(ROOT_FLAP, new Root("висл", RootLink.O));
+		roots.put(ROOT_STICK_OUT, new Root("торчк", RootLink.O));
+		roots.put(ROOT_PALE, new Root("бледн", RootLink.O));
 
 		roots.put(ROOT_BOLDY, new Root("лыс", RootLink.O));
 		roots.put(ROOT_FURRY, new Root("пушист", RootLink.O));

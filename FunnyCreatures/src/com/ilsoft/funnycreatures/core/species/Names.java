@@ -57,6 +57,8 @@ public class Names {
 	public static final int ROOT_BEAK = 109;
 	public static final int ROOT_PROBOSCIS = 111;
 	public static final int ROOT_FANG = 112;
+	public static final int ROOT_CLAWS = 113;
+	public static final int ROOT_HOOVES = 114;
 	
 	public static final int ROOT_RAKE = 300;
 	public static final int ROOT_SKEW = 301;
@@ -103,6 +105,8 @@ public class Names {
 	public static final HashMap<Integer, Root> roots = new HashMap<Integer, Root>();
 	static {
 		// Частетельно
+		roots.put(ROOT_CLAWS, new Root("когтист", RootLink.O));
+		roots.put(ROOT_HOOVES, new Root("копытн", RootLink.O));
 		roots.put(ROOT_TAIL, new Root("хвост", RootLink.O));
 		roots.put(ROOT_EAR, new Root("ух", RootLink.O));
 		roots.put(ROOT_LIMB, new Root("лап", RootLink.O));
@@ -209,7 +213,8 @@ public class Names {
 		adjectiveLastParts.put(ROOT_BEAK, new Adjective(roots.get(ROOT_BEAK), AdjectiveBase.HARD));
 		adjectiveLastParts.put(ROOT_PROBOSCIS, new Adjective(new RootWithSuffixes(roots.get(ROOT_PROBOSCIS), Suffix.YAN, RootLink.O), AdjectiveBase.OLD));
 		adjectiveLastParts.put(ROOT_FANG, new Adjective(roots.get(ROOT_FANG), AdjectiveBase.HARD));
-	
+		adjectiveLastParts.put(ROOT_HOOVES, new Adjective(roots.get(ROOT_HOOVES), AdjectiveBase.HARD));
+
 		adjectiveLastParts.put(ROOT_RAKE, new Adjective(new RootWithSuffixes(roots.get(ROOT_RAKE), Suffix.YAN, RootLink.O), AdjectiveBase.HARD));
 		adjectiveLastParts.put(ROOT_SKEW, new Adjective(roots.get(ROOT_SKEW), AdjectiveBase.OLD));
 		adjectiveLastParts.put(ROOT_GNARLY, new Adjective(new RootWithSuffixes(new RootWithSuffixes(roots.get(ROOT_GNARLY), Suffix.OV, RootLink.O), Suffix.AT, RootLink.O), AdjectiveBase.HARD));
@@ -251,6 +256,15 @@ public class Names {
 		adjectiveLastParts.put(ROOT_ALIKE, new Adjective(roots.get(ROOT_ALIKE), AdjectiveBase.HARD));
 		adjectiveLastParts.put(ROOT_ALIKE_2, new Adjective(roots.get(ROOT_ALIKE_2), AdjectiveBase.HARD));
 		adjectiveLastParts.put(ROOT_ALIKE_3, new Adjective(roots.get(ROOT_ALIKE_3), AdjectiveBase.HARD));
+
+		adjectiveLastParts.put(ROOT_HABITAT_BUSHY, new Adjective(roots.get(ROOT_HABITAT_BUSHY), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_HABITAT_DESERT, new Adjective(roots.get(ROOT_HABITAT_DESERT), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_HABITAT_FOREST, new Adjective(roots.get(ROOT_HABITAT_FOREST), AdjectiveBase.OLD));
+		adjectiveLastParts.put(ROOT_HABITAT_HERBY, new Adjective(roots.get(ROOT_HABITAT_HERBY), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_HABITAT_RIVER, new Adjective(roots.get(ROOT_HABITAT_RIVER), AdjectiveBase.OLD));
+		adjectiveLastParts.put(ROOT_HABITAT_ROCKY, new Adjective(roots.get(ROOT_HABITAT_ROCKY), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_HABITAT_SANDY, new Adjective(roots.get(ROOT_HABITAT_SANDY), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_HABITAT_SWAMPY, new Adjective(roots.get(ROOT_HABITAT_SWAMPY), AdjectiveBase.HARD));
 	}
 }
 

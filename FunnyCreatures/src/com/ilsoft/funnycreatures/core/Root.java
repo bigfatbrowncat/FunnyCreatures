@@ -94,4 +94,18 @@ public class Root
 	{
 		return this;
 	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if (o instanceof Root)
+		{
+			Root r = (Root)o;
+			return s.equals(r.s) && link.equals(r.link);
+		}
+		else
+		{
+			return false;
+		}
+	}
 }

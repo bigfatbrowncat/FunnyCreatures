@@ -1,12 +1,13 @@
 package com.ilsoft.funnycreatures.core.species;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
-import java.util.jar.Attributes.Name;
 
 import com.ilsoft.funnycreatures.core.Adjective;
 import com.ilsoft.funnycreatures.core.Noun;
 import com.ilsoft.funnycreatures.core.NounBase;
+import com.ilsoft.funnycreatures.core.Root;
 import com.ilsoft.funnycreatures.core.species.Species.Covering.Type;
 
 /**
@@ -673,6 +674,36 @@ public class Species {
 			}			
 		}
 		
+		// Окончание конечностей
+		if (getLimbsFinishing() == LimbsFinishing.Claws) {
+			nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_CLAWS), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+			adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_CLAWS), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
+		}
+		else if (getLimbsFinishing() == LimbsFinishing.Hooves) {
+			nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_HOOVES), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+			adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_HOOVES), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
+		}
+		
+		// Ареал обитания
+		if (getHabitatType() == HabitatType.Desert) {
+			adjectivePossibilities.add(Names.adjectiveLastParts.get(Names.ROOT_HABITAT_DESERT));
+		}
+		else if (getHabitatType() == HabitatType.Forest) {
+			adjectivePossibilities.add(Names.adjectiveLastParts.get(Names.ROOT_HABITAT_FOREST));
+		}
+		else if (getHabitatType() == HabitatType.Glade) {
+			adjectivePossibilities.add(Names.adjectiveLastParts.get(Names.ROOT_HABITAT_HERBY));
+		}
+		else if (getHabitatType() == HabitatType.RiverShore) {
+			adjectivePossibilities.add(Names.adjectiveLastParts.get(Names.ROOT_HABITAT_RIVER));
+		}
+		else if (getHabitatType() == HabitatType.Rocks) {
+			adjectivePossibilities.add(Names.adjectiveLastParts.get(Names.ROOT_HABITAT_ROCKY));
+		}
+		else if (getHabitatType() == HabitatType.Swamp) {
+			adjectivePossibilities.add(Names.adjectiveLastParts.get(Names.ROOT_HABITAT_SWAMPY));
+		}
+		
 		// Количество конечностей
 		if (getLimbsNumber() != 4) {
 			nounPossibilities.add(new Noun(Names.quantityRoots.get(getLimbsNumber()), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
@@ -695,13 +726,38 @@ public class Species {
 			adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SHORT), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
 		}
 		
-		Adjective adj = adjectivePossibilities.get(rnd.nextInt(adjectivePossibilities.size()));
-		Noun nn = nounPossibilities.get(rnd.nextInt(nounPossibilities.size()));
+		Adjective adj;
+		Noun nn;
+		boolean repeat;
+		do
+		{
+		
+			adj = adjectivePossibilities.get(rnd.nextInt(adjectivePossibilities.size()));
+			nn = nounPossibilities.get(rnd.nextInt(nounPossibilities.size()));
+			
+			repeat = false;
+			ArrayList<Root> roots = new ArrayList<Root>();
+			roots.addAll(Arrays.asList(adj.getRoots()));
+			roots.addAll(Arrays.asList(nn.getRoots()));
+			for (int i = 0; i < roots.size() - 1; i++)
+			{
+				for (int j = i + 1; j < roots.size(); j++)
+				{
+					if (roots.get(i).equals(roots.get(j)))
+					{
+						repeat = true;
+						break;
+					}
+				}
+			}
+		}
+		while (repeat);
+		
 		return new SpeciesName(new Adjective[] { adj }, nn);
 	}
 	
 	/**
-	 * Создает прилагательное "медведеобразный", "рковидный" из корня "медвед", "рак". 
+	 * Создает прилагательное "медведеобразный", "раковидный" из корня "медвед", "рак". 
 	 * Выбор второй части прилагательного осуществляется случайно на основе первой части.
 	 * @param rootCode Одна из констант "Names.ROOT_..."
 	 */

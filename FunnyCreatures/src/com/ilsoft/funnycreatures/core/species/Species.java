@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.jar.Attributes.Name;
 
+import com.ilsoft.funnycreatures.core.Adjective;
 import com.ilsoft.funnycreatures.core.Noun;
 import com.ilsoft.funnycreatures.core.NounBase;
 import com.ilsoft.funnycreatures.core.species.Species.Covering.Type;
@@ -449,37 +450,14 @@ public class Species {
 		return fingersNumber;
 	}
 
-	public Noun getNameAsFamilyBase() {
+	public SpeciesName getNameAsFamilyBase() {
 	
 		Random rnd = new Random(nameGeneratorSeed);
 	
-		/*int[] simplePredators = {
-			Names.ROOT_FAMILY_SPREADY,
-			Names.ROOT_FAMILY_MADEYE,
-			Names.ROOT_FAMILY_BITY,
-			Names.ROOT_FAMILY_BITEAWAY,
-			Names.ROOT_FAMILY_WOOLY
-		};
-
-		int[] simpleHerbivores = {
-			Names.ROOT_FAMILY_GREBUBLYA,
-			Names.ROOT_FAMILY_SCRATCHY,
-			Names.ROOT_FAMILY_OUTCRAWLER,
-			Names.ROOT_FAMILY_LUMMOXY,
-			Names.ROOT_FAMILY_HIDDY,
-			Names.ROOT_FAMILY_BUTTCRAWLER,
-			Names.ROOT_FAMILY_MUSHROOMEATER,
-			Names.ROOT_FAMILY_ROCKCRUNCHER,
-			Names.ROOT_FAMILY_WOODCHEWER,
-			Names.ROOT_FAMILY_EVILEYE
-		};
-		
-		int[] simpleScavengers = {
-			Names.ROOT_FAMILY_SLOWPOKY,
-		};*/
-		
 		// Добавляем простые виды
-		ArrayList<Noun> possibilities = new ArrayList<Noun>();
+		ArrayList<Noun> nounPossibilities = new ArrayList<Noun>();
+		ArrayList<Adjective> adjectivePossibilities = new ArrayList<Adjective>();
+
 		if (getFeedingType() == FeedingType.Predator)
 		{
 			// Растопырка
@@ -487,64 +465,85 @@ public class Species {
 			    (getHabitatType() == HabitatType.Glade) &&						// Водятся на полянах
 			    (getLimbsNumber() > 3))											// Хотя бы три конечности
 			{
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_SPREADY));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_SPREADY));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_SPREADY));
 			}
 			
 			// Лупоглядень
 			if (getEyesNumber() > 0)											// Как минимум 1 глаз
 			{
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_MADEYE));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_MADEYE));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_MADEYE));
 			}
 			
 			// Кусачка
 			if (getSize() == Size.Tiny || getSize() == Size.Average)											// Как минимум 1 глаз
 			{
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_BITY));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_BITY));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_BITY));
 			}
 			
 			// Отгрызайка
-			possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_BITEAWAY));
+			nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_BITEAWAY));
+			adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_BITEAWAY));
 			
 			// Шерстень
 			if (getSize() == Size.Tiny &&
 			    getDefaultCovering().getType() == Type.Fur &&
 			    getBackCovering().getType() == null)
 			{
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_WOOLY));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_WOOLY));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_WOOLY));
 			}
-		} else if (getFeedingType() == FeedingType.Herbivore) {
+		} 
+		else if (getFeedingType() == FeedingType.Herbivore)
+		{
 			if (getHabitatType() == HabitatType.RiverShore) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_GREBUBLYA));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_GREBUBLYA));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_GREBUBLYA));
 			}
 			if (getLimbsFinishing() == LimbsFinishing.Claws) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_SCRATCHY));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_SCRATCHY));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_SCRATCHY));
 			}
 			if (getHabitatType() == HabitatType.Swamp || getHabitatType() == HabitatType.Glade) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_OUTCRAWLER));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_OUTCRAWLER));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_OUTCRAWLER));
 			}
 			if (getSize() == Size.Huge || getSize() == Size.Giant) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_LUMMOXY));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_LUMMOXY));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_LUMMOXY));
 			}
 
-			possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_HIDDY));
+			nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_HIDDY));
+			adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_HIDDY));
+			
 			if (getLimbsNumber() <= 2) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_BUTTCRAWLER));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_BUTTCRAWLER));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_BUTTCRAWLER));
 			}
 			if (getHabitatType() != HabitatType.Desert) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_MUSHROOMEATER));	
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_MUSHROOMEATER));	
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_MUSHROOMEATER));
 			}
 			if (getHabitatType() == HabitatType.Rocks || getHabitatType() == HabitatType.RiverShore) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_ROCKCRUNCHER));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_ROCKCRUNCHER));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_ROCKCRUNCHER));
 			}
 			if (getHabitatType() == HabitatType.Forest || getHabitatType() == HabitatType.Swamp) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_WOODCHEWER));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_WOODCHEWER));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_WOODCHEWER));
 			}
 			if (getEyesNumber() > 0) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_EVILEYE));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_EVILEYE));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_EVILEYE));
 			}
-		} else if (getFeedingType() == FeedingType.Scavenger) {
+		} 
+		else if (getFeedingType() == FeedingType.Scavenger) 
+		{
 			if (getSize() == Size.Average || getSize() == Size.Huge) {
-				possibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_SLOWPOKY));
+				nounPossibilities.add(Names.simpleFamiliesNames.get(Names.ROOT_FAMILY_SLOWPOKY));
+				adjectivePossibilities.add(getAlike(Names.ROOT_FAMILY_SLOWPOKY));
 			}
 		}
 		
@@ -554,18 +553,24 @@ public class Species {
 		if (getTailCovering() != null)
 		{
 			if (getTailCovering().getType() == Type.Fur) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_WOOLY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_WOOLY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_FURRY), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_WOOLY), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
 			}
 			else if (getTailCovering().getType() == Type.Squama) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SQUAMY), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
 			}
 			else if (getTailCovering().getType() == Type.Spines) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SPINY), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
 			}
 			else if (getTailCovering().getType() == Type.None) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_BOLDY), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SMOOTH), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
 			}
 		}
 		
@@ -573,18 +578,24 @@ public class Species {
 		if (getFrontLimbsCovering() != null)
 		{
 			if (getFrontLimbsCovering().getType() == Type.Fur) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_WOOLY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_WOOLY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_FURRY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_WOOLY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 			}
 			else if (getFrontLimbsCovering().getType() == Type.Squama) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SQUAMY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 			}
 			else if (getFrontLimbsCovering().getType() == Type.Spines) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SPINY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 			}
 			else if (getFrontLimbsCovering().getType() == Type.None) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_BOLDY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SMOOTH), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 			}
 			
 		}
@@ -592,18 +603,24 @@ public class Species {
 		if (getBackLimbsCovering() != null)
 		{
 			if (getBackLimbsCovering().getType() == Type.Fur) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_WOOLY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_WOOLY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_FURRY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_WOOLY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 			}
 			else if (getBackLimbsCovering().getType() == Type.Squama) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SQUAMY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 			}
 			else if (getBackLimbsCovering().getType() == Type.Spines) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SPINY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 			}
 			else if (getBackLimbsCovering().getType() == Type.None) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_BOLDY), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SMOOTH), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 			}
 
 		}
@@ -612,18 +629,24 @@ public class Species {
 		if (getBellyCovering() != null)
 		{
 			if (getBellyCovering().getType() == Type.Fur) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_WOOLY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_WOOLY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_FURRY), Names.adjectiveLastParts.get(Names.ROOT_BELLY)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_WOOLY), Names.adjectiveLastParts.get(Names.ROOT_BELLY)));
 			}
 			else if (getBellyCovering().getType() == Type.Squama) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SQUAMY), Names.adjectiveLastParts.get(Names.ROOT_BELLY)));
 			}
 			else if (getBellyCovering().getType() == Type.Spines) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SPINY), Names.adjectiveLastParts.get(Names.ROOT_BELLY)));
 			}
 			else if (getBellyCovering().getType() == Type.None) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_BELLY), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_BOLDY), Names.adjectiveLastParts.get(Names.ROOT_BELLY)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SMOOTH), Names.adjectiveLastParts.get(Names.ROOT_BELLY)));
 			}			
 		}
 		
@@ -631,39 +654,77 @@ public class Species {
 		if (getSnoutCovering() != null)
 		{
 			if (getSnoutCovering().getType() == Type.Fur) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_FURRY), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_FURRY), Names.adjectiveLastParts.get(Names.ROOT_SNOUT)));
 			}
 			else if (getSnoutCovering().getType() == Type.Squama) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SQUAMY), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SQUAMY), Names.adjectiveLastParts.get(Names.ROOT_SNOUT)));
 			}
 			else if (getSnoutCovering().getType() == Type.Spines) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SPINY), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SPINY), Names.adjectiveLastParts.get(Names.ROOT_SNOUT)));
 			}
 			else if (getSnoutCovering().getType() == Type.None) {
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
-				possibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_BOLDY), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SMOOTH), new Noun(Names.roots.get(Names.ROOT_SNOUT), NounBase.M_HARD_1)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_BOLDY), Names.adjectiveLastParts.get(Names.ROOT_SNOUT)));
+				adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SMOOTH), Names.adjectiveLastParts.get(Names.ROOT_SNOUT)));
 			}			
 		}
 		
 		// Количество конечностей
 		if (getLimbsNumber() != 4) {
-			possibilities.add(new Noun(Names.quantityRoots.get(getLimbsNumber()), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+			nounPossibilities.add(new Noun(Names.quantityRoots.get(getLimbsNumber()), new Noun(Names.roots.get(Names.ROOT_LIMB), NounBase.M_HARD_1)));
+			adjectivePossibilities.add(new Adjective(Names.quantityRoots.get(getLimbsNumber()), Names.adjectiveLastParts.get(Names.ROOT_LIMB)));
 		}
 		
 		// Количество рогов
 		if (getHornsNumber() != 0 && getHornsNumber() != 2) {
-			possibilities.add(new Noun(Names.quantityRoots.get(getHornsNumber()), new Noun(Names.roots.get(Names.ROOT_HORN), NounBase.M_HARD_1)));
+			nounPossibilities.add(new Noun(Names.quantityRoots.get(getHornsNumber()), new Noun(Names.roots.get(Names.ROOT_HORN), NounBase.M_HARD_1)));
+			adjectivePossibilities.add(new Adjective(Names.quantityRoots.get(getHornsNumber()), Names.adjectiveLastParts.get(Names.ROOT_HORN)));
 		}
 		
 		// Хвост
 		if (getTailType() == TailType.Long) {
-			possibilities.add(new Noun(Names.roots.get(Names.ROOT_LONG), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+			nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_LONG), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+			adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_LONG), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
 		}
 		else if (getTailType() == TailType.Short) {
-			possibilities.add(new Noun(Names.roots.get(Names.ROOT_SHORT), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+			nounPossibilities.add(new Noun(Names.roots.get(Names.ROOT_SHORT), new Noun(Names.roots.get(Names.ROOT_TAIL), NounBase.M_HARD_1)));
+			adjectivePossibilities.add(new Adjective(Names.roots.get(Names.ROOT_SHORT), Names.adjectiveLastParts.get(Names.ROOT_TAIL)));
 		}
 		
-		return possibilities.get(rnd.nextInt(possibilities.size()));
+		Adjective adj = adjectivePossibilities.get(rnd.nextInt(adjectivePossibilities.size()));
+		Noun nn = nounPossibilities.get(rnd.nextInt(nounPossibilities.size()));
+		return new SpeciesName(new Adjective[] { adj }, nn);
+	}
+	
+	/**
+	 * Создает прилагательное "медведеобразный", "рковидный" из корня "медвед", "рак". 
+	 * Выбор второй части прилагательного осуществляется случайно на основе первой части.
+	 * @param rootCode Одна из констант "Names.ROOT_..."
+	 */
+	public static Adjective getAlike(int rootCode) 
+	{
+		Random rnd = new Random(rootCode);
+		Adjective adj;
+		switch (rnd.nextInt(3))
+		{
+		case 0:
+			adj = Names.adjectiveLastParts.get(Names.ROOT_ALIKE);
+			break;
+		case 1:
+			adj = Names.adjectiveLastParts.get(Names.ROOT_ALIKE_2);
+			break;
+		case 2:
+			adj = Names.adjectiveLastParts.get(Names.ROOT_ALIKE_3);
+			break;
+		default:
+			throw new RuntimeException("Strange case in getAlike");
+		}
+		
+		return new Adjective(Names.roots.get(rootCode),	adj);
 	}
 	
 	/**

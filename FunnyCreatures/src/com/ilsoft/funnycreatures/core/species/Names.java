@@ -1,8 +1,6 @@
 package com.ilsoft.funnycreatures.core.species;
 
 import java.util.HashMap;
-import java.util.logging.SimpleFormatter;
-
 import android.annotation.SuppressLint;
 
 import com.ilsoft.funnycreatures.core.Adjective;
@@ -19,6 +17,9 @@ public class Names {
 	
 	public static final int ROOT_SIMPLE = 600;
 	public static final int ROOT_FALSE = 601;
+	public static final int ROOT_ALIKE = 602;
+	public static final int ROOT_ALIKE_2 = 603;
+	public static final int ROOT_ALIKE_3 = 604;
 
 	public static final int ROOT_HABITAT_DESERT = 701;
 	public static final int ROOT_HABITAT_RIVER = 702;
@@ -141,25 +142,28 @@ public class Names {
 		roots.put(ROOT_SQUAMY, new Root("чешуйчат", RootLink.O));
 		roots.put(ROOT_SPINY, new Root("шипаст", RootLink.O));
 
-		roots.put(ROOT_FAMILY_SPREADY, new Root("растопыр", RootLink.O));
+		roots.put(ROOT_FAMILY_SPREADY, new Root("растопыр", RootLink.KO));
 		roots.put(ROOT_FAMILY_GREBUBLYA, new Root("гребубл", RootLink.E));
-		roots.put(ROOT_FAMILY_MADEYE, new Root("лупогляд", RootLink.O));
+		roots.put(ROOT_FAMILY_MADEYE, new Root("лупогляд", RootLink.NE));
 		roots.put(ROOT_FAMILY_BITY, new Root("кусачк", RootLink.O));
 		roots.put(ROOT_FAMILY_SCRATCHY, new Root("царапк", RootLink.O));
-		roots.put(ROOT_FAMILY_OUTCRAWLER, new Root("выполз", RootLink.O));
-		roots.put(ROOT_FAMILY_LUMMOXY, new Root("увал", RootLink.O));
-		roots.put(ROOT_FAMILY_HIDDY, new Root("невид", RootLink.O));
+		roots.put(ROOT_FAMILY_OUTCRAWLER, new Root("выполз", RootLink.NE));
+		roots.put(ROOT_FAMILY_LUMMOXY, new Root("увал", RootLink.SOFT_NE));
+		roots.put(ROOT_FAMILY_HIDDY, new Root("невид", RootLink.NE));
 		roots.put(ROOT_FAMILY_BITEAWAY, new Root("отгрызайк", RootLink.O));
 		roots.put(ROOT_FAMILY_BUTTCRAWLER, new Root("уползад", RootLink.O));
 		roots.put(ROOT_FAMILY_MUSHROOMEATER, new Root("грибоед", RootLink.O));
 		roots.put(ROOT_FAMILY_ROCKCRUNCHER, new Root("камнегрыз", RootLink.O));
 		roots.put(ROOT_FAMILY_WOODCHEWER, new Root("древожу", RootLink.E));
-		roots.put(ROOT_FAMILY_SLOWPOKY, new Root("тормоз", RootLink.O));
-		roots.put(ROOT_FAMILY_WOOLY, new Root("шерст", RootLink.E));
+		roots.put(ROOT_FAMILY_SLOWPOKY, new Root("тормоз", RootLink.NE));
+		roots.put(ROOT_FAMILY_WOOLY, new Root("шерст", RootLink.NE));
 		roots.put(ROOT_FAMILY_EVILEYE, new Root("злобнозырк", RootLink.O));
 		
 		roots.put(ROOT_SIMPLE, new Root("обыкновенн", RootLink.O));
 		roots.put(ROOT_FALSE, new Root("ложн", RootLink.O));
+		roots.put(ROOT_ALIKE, new Root("образн", RootLink.O));
+		roots.put(ROOT_ALIKE_2, new Root("видн", RootLink.O));
+		roots.put(ROOT_ALIKE_3, new Root("подобн", RootLink.O));
 		
 		roots.put(ROOT_HABITAT_DESERT, new Root("пустынн", RootLink.O));
 		roots.put(ROOT_HABITAT_RIVER, new Root("речн", RootLink.O));
@@ -205,55 +209,48 @@ public class Names {
 		adjectiveLastParts.put(ROOT_BEAK, new Adjective(roots.get(ROOT_BEAK), AdjectiveBase.HARD));
 		adjectiveLastParts.put(ROOT_PROBOSCIS, new Adjective(new RootWithSuffixes(roots.get(ROOT_PROBOSCIS), Suffix.YAN, RootLink.O), AdjectiveBase.OLD));
 		adjectiveLastParts.put(ROOT_FANG, new Adjective(roots.get(ROOT_FANG), AdjectiveBase.HARD));
-	}
-/*		new Adjective(new RootWithSuffixes(getRoot(300), Suffix.YAN, RootLink.O), AdjectiveBase.HARD),
-		new Adjective(getRoot(301), AdjectiveBase.OLD),
-		new Adjective(new RootWithSuffixes(new RootWithSuffixes(getRoot(302), Suffix.OV, RootLink.O), Suffix.AT, RootLink.O), AdjectiveBase.HARD),
-		new Adjective(getRoot(303), AdjectiveBase.SOFT),
-		new Adjective(getRoot(304), AdjectiveBase.HARD),
-		new Adjective(getRoot(305), AdjectiveBase.SOFT),
-		new Adjective(getRoot(306), AdjectiveBase.HARD),
-		new Adjective(getRoot(307), AdjectiveBase.HARD),
-		new Adjective(getRoot(308), AdjectiveBase.OLD),
-		new Adjective(getRoot(309), AdjectiveBase.HARD),
-		new Adjective(getRoot(310), AdjectiveBase.HARD),
-		new Adjective(getRoot(311), AdjectiveBase.SOFT),
-		new Adjective(getRoot(312), AdjectiveBase.HARD),
-		new Adjective(getRoot(313), AdjectiveBase.SOFT),
-		new Adjective(getRoot(314), AdjectiveBase.HARD),
-		new Adjective(getRoot(315), AdjectiveBase.HARD),
-		new Adjective(new RootWithSuffixes(getRoot(316), Suffix.OV, RootLink.O), AdjectiveBase.HARD),
-		new Adjective(getRoot(317), AdjectiveBase.HARD),
-		new Adjective(getRoot(318), AdjectiveBase.HARD),
-		new Adjective(getRoot(319), AdjectiveBase.HARD),
+	
+		adjectiveLastParts.put(ROOT_RAKE, new Adjective(new RootWithSuffixes(roots.get(ROOT_RAKE), Suffix.YAN, RootLink.O), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_SKEW, new Adjective(roots.get(ROOT_SKEW), AdjectiveBase.OLD));
+		adjectiveLastParts.put(ROOT_GNARLY, new Adjective(new RootWithSuffixes(new RootWithSuffixes(roots.get(ROOT_GNARLY), Suffix.OV, RootLink.O), Suffix.AT, RootLink.O), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_HORN, new Adjective(roots.get(ROOT_HORN), AdjectiveBase.SOFT));
+		adjectiveLastParts.put(ROOT_MEMBRANOUS, new Adjective(roots.get(ROOT_MEMBRANOUS), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_SMOOTH, new Adjective(roots.get(ROOT_SMOOTH), AdjectiveBase.SOFT));
+		adjectiveLastParts.put(ROOT_STRIPED, new Adjective(roots.get(ROOT_STRIPED), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_DOTTED, new Adjective(roots.get(ROOT_DOTTED), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_BLUNT, new Adjective(roots.get(ROOT_BLUNT), AdjectiveBase.OLD));
+		adjectiveLastParts.put(ROOT_SHARP, new Adjective(roots.get(ROOT_SHARP), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_LONG, new Adjective(roots.get(ROOT_LONG), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_SHORT, new Adjective(roots.get(ROOT_SHORT), AdjectiveBase.SOFT));
+		adjectiveLastParts.put(ROOT_CONVEX, new Adjective(roots.get(ROOT_CONVEX), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_NARROW, new Adjective(roots.get(ROOT_NARROW), AdjectiveBase.SOFT));
+		adjectiveLastParts.put(ROOT_OBLONG, new Adjective(roots.get(ROOT_OBLONG), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_FLAP, new Adjective(roots.get(ROOT_FLAP), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_STICK_OUT, new Adjective(new RootWithSuffixes(roots.get(ROOT_STICK_OUT), Suffix.OV, RootLink.O), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_THICK, new Adjective(roots.get(ROOT_THICK), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_PALE, new Adjective(roots.get(ROOT_PALE), AdjectiveBase.HARD));
 
-		new Adjective(new RootWithSuffixes(getRoot(409), Suffix.N, RootLink.O), AdjectiveBase.HARD),
+		adjectiveLastParts.put(ROOT_FURRY, new Adjective(new RootWithSuffixes(roots.get(ROOT_FURRY), Suffix.N, RootLink.O), AdjectiveBase.HARD));
 		
-		new Adjective
+		adjectiveLastParts.put(ROOT_FAMILY_SPREADY, new Adjective
 		(
 			new RootWithSuffixes
 			(
 				new RootWithSuffixes
 				(
-					getRoot(500), 
+					roots.get(ROOT_FAMILY_SPREADY), 
 					Suffix.CH, RootLink.E
 				), 
 				Suffix.AT, RootLink.O
 			),
 			AdjectiveBase.HARD
-		),
+		));
 		
-		new Adjective(getRoot(600), AdjectiveBase.HARD),
-		new Adjective(getRoot(ROOT_FALSE), AdjectiveBase.HARD),
-		new Adjective(getRoot(602), AdjectiveBase.HARD),
-		new Adjective(getRoot(603), AdjectiveBase.OLD),
-		new Adjective(getRoot(604), AdjectiveBase.OLD),
-		new Adjective(getRoot(605), AdjectiveBase.HARD),
-		new Adjective(getRoot(606), AdjectiveBase.HARD),
-		new Adjective(getRoot(607), AdjectiveBase.HARD),
-		new Adjective(getRoot(608), AdjectiveBase.HARD),
-		new Adjective(getRoot(609), AdjectiveBase.HARD),
-	};*/
-	 
+		adjectiveLastParts.put(ROOT_SIMPLE, new Adjective(roots.get(ROOT_SIMPLE), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_FALSE, new Adjective(roots.get(ROOT_FALSE), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_ALIKE, new Adjective(roots.get(ROOT_ALIKE), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_ALIKE_2, new Adjective(roots.get(ROOT_ALIKE_2), AdjectiveBase.HARD));
+		adjectiveLastParts.put(ROOT_ALIKE_3, new Adjective(roots.get(ROOT_ALIKE_3), AdjectiveBase.HARD));
+	}
 }
 

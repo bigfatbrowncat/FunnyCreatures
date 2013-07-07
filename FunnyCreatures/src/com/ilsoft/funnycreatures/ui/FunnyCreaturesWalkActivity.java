@@ -5,8 +5,8 @@ import java.util.Random;
 import com.ilsoft.funnycreatures.R;
 import com.ilsoft.funnycreatures.core.Case;
 import com.ilsoft.funnycreatures.core.Noun;
-import com.ilsoft.funnycreatures.core.SpeciesName;
 import com.ilsoft.funnycreatures.core.species.Species;
+import com.ilsoft.funnycreatures.core.species.SpeciesName;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -49,11 +49,10 @@ public class FunnyCreaturesWalkActivity extends Activity
 				{
 					if (pd != null) 
 					{
-						//SpeciesName fc = SpeciesNameGenerator.generate(rnd);
 						Species newSpec = Species.generate(rnd);
+						SpeciesName fc = newSpec.getNameAsFamilyBase();
 						
-						Noun fc = newSpec.getNameAsFamilyBase();
-						creatureName_TextView.setText(fc.getForm(Case.NOMINATIVE));
+						creatureName_TextView.setText(fc.getFullName(Case.NOMINATIVE));
 						//creatureDescription_TextView.setText(SpeciesDescriptor.describe(fc));
 
 						goForAWalk_LinearLayout.setVisibility(View.GONE);

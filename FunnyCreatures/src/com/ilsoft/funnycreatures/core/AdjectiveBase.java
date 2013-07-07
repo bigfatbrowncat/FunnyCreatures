@@ -4,7 +4,7 @@ import com.ilsoft.funnycreatures.core.NounBase.Gender;
 
 public class AdjectiveBase
 {
-	/*
+	/**
 	 * "ый", "ого", "ому", "ого", "ым", "ом"
 	 * "ая", "ой", "ой", "ую", "ой", "ой"
 	 */
@@ -49,7 +49,6 @@ public class AdjectiveBase
 		}
 	);	
 	
-
 
 	private String[] maleForms;
 	private String[] femaleForms;

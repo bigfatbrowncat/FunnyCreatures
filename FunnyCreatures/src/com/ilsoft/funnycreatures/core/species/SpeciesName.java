@@ -1,4 +1,8 @@
-package com.ilsoft.funnycreatures.core;
+package com.ilsoft.funnycreatures.core.species;
+
+import com.ilsoft.funnycreatures.core.Adjective;
+import com.ilsoft.funnycreatures.core.Case;
+import com.ilsoft.funnycreatures.core.Noun;
 
 public class SpeciesName
 {
